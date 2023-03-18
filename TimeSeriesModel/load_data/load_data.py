@@ -7,6 +7,7 @@ import seaborn as sns
 import csv
 
 
+
 #Load csv data file
 def load_data(filename):
     mylist=[]

@@ -30,12 +30,23 @@ new_data = data.loc[(data['Product']==2667437) & (data['Store']=='QLD_CW_ST0203'
 new_data.drop(['Time Date', 'Product', 'Store', 'Year', 'Month', 'Day'], axis=1, inplace=True)
 new_data.columns = ['y', 'ds']
 
-print(data)
-print(new_data)
+#print(data)
+#print(new_data)
+
 #Data cleaning / droping columns from teh data sample
 #new_data = data.drop(['Time Date'], axis=1)
 #print(new_data)
 #print(new_data.shape)
+
+
+#Missing values
+print(data.isna().sum())
+
+#Missing values
+print(data.loc[data.duplicated()])
+
+#Check for duplicates on a subset of data
+print(data.loc[data.duplicated(subset=['Product'])])
 
 
 

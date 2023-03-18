@@ -80,6 +80,9 @@ plt.rc('lines', linewidth=2)
 plt.hist(x)
 plt.show()
 
+# Open a txt file
+#f = open('/Users/stratos/Desktop/Neon-Advisory/Rental Contract Amsterdam Desk Company/example.txt')
+#print(f.read(50))
 
 
 

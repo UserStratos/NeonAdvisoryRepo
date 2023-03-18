@@ -3,6 +3,7 @@ warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from TimeSeriesModel.load_data.functions import interest
 import seaborn as sns
 #plt.style.use('ggplot')
 #pd.set_option('max_columns', 200)
@@ -79,12 +80,18 @@ plt.rc('lines', linewidth=2)
 
 plt.hist(x)
 plt.show()
-
 # Open a txt file
+
 #f = open('/Users/stratos/Desktop/Neon-Advisory/Rental Contract Amsterdam Desk Company/example.txt')
 #print(f.read(50))
-
-
-
+#def open_txt_file():
+ #f  = open('/Users/stratos/Desktop/Neon-Advisory/Rental Contract Amsterdam Desk Company/example.txt')
+#print(f.read(50))
+# Get input from the user
+p = int(input("Enter the principal amount: "))
+n = int(input("Enter the number of years: "))
+# Calling a function of constants.py file with p and n as an  arguments
+#print("Interest accrued for the principal",p, "for",n, "years at the rate of 5% is 1000000",interest(p,n))
+print('answer is  ',interest(p,n))
 
 

@@ -1,8 +1,11 @@
-import pandas as pd
+import warnings;
+warnings.simplefilter("ignore")
 import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+#Constant for interest calculation
+r = 5
 
 
-#Useful variables that are going to be used
-START=1
-FINISH=100
-SKIP_RANGE=range(20,50)
+
+

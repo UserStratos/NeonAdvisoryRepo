@@ -40,13 +40,45 @@ new_data.columns = ['y', 'ds']
 
 
 #Missing values
-print(data.isna().sum())
+#print(data.isna().sum())
 
 #Missing values
-print(data.loc[data.duplicated()])
+#print(data.loc[data.duplicated()])
 
 #Check for duplicates on a subset of data
-print(data.loc[data.duplicated(subset=['Product'])])
+#print(data.loc[data.duplicated(subset=['Product'])])
+#checking an example duplicate
+#print(data.query('Product== 2667437'))
+
+#ax = data['Year'].value_counts()\
+#    .head(10)\
+#    .plot(kind='bar', title = 'Stratos example graph')
+#ax.set_xlabel("x-axis")
+#ax.set_ylabel('y-axis')
+#x = data['Year']
+#y =  data['Value']
+
+#plot the graph
+#plt.plot(x, y)
+#plt.show()
+
+# use a gray background
+x = np.random.randn(100000)
+
+from matplotlib import cycler
+colors = cycler('color',
+                ['#EE6666', '#3388BB', '#9988DD',
+                 '#EECC55', '#88BB44', '#FFBBBB'])
+plt.rc('axes', facecolor='#E6E6E6', edgecolor='none',
+       axisbelow=True, grid=True, prop_cycle=colors)
+plt.rc('grid', color='w', linestyle='solid')
+plt.rc('xtick', direction='out', color='gray')
+plt.rc('ytick', direction='out', color='gray')
+plt.rc('patch', edgecolor='#E6E6E6')
+plt.rc('lines', linewidth=2)
+
+plt.hist(x)
+plt.show()
 
 
 

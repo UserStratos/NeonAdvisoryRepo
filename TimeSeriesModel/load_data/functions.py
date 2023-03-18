@@ -21,7 +21,9 @@ def opencsv(file_name):
     #print(data.to_string())
 
 def data_info():
+    print('Summary of the DataFrame')
     print(data.info())
+
     #print(data.head())
     #print(data.tail())
 def data_shape():
@@ -53,11 +55,22 @@ def duplicated_data():
 def data_head():
     print(data.head())
 
-#Check for duplicates on a subset of data
-    #print(data.loc[data.duplicated(subset=['Artist'])])
-    #print(data.loc[data.duplicated(subset=['Song'])])
-    #print(data.loc[data.duplicated(subset=['Streams (Billions)'])])
-    #print(data.loc[data.duplicated(subset=['Release Date'])])
+def data_column():
+      for x in data:
+          data_head()
+          print('all good')
+
+def data_size():
+    print(data.size)
+
+def data_empty():
+    print(data_empty)
+
+def data_duplicated():
+    columns = data.head()
+    for x in columns:
+        print(data.loc[data.duplicated(subset=[x])])
+
 
 
 

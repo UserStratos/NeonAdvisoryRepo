@@ -13,7 +13,8 @@ file_name = 'Data.csv'
 # Name the dataframe
 data = pd.read_csv(file_name)
 
-
+# Calculae how many columns are in teh dataFrame
+x = (len(data))
 
 
 

@@ -9,16 +9,16 @@ import csv
 
 
 #Load csv data file
-def load_data(filename):
+def load_series(filename):
     mylist=[]
     with open(filename) as numbers:
-        numbers_data=csv.reader(numbers, delimiter=",")
+        numbers_data = csv.reader(numbers, delimiter=",")
         next(numbers_data)
         for row in numbers_data:
             mylist.append(row)
         return mylist
 
-new_list = load_data('numbers.csv')
+new_list = load_series('numbers.csv')
 for row in new_list:
     print(row)
 

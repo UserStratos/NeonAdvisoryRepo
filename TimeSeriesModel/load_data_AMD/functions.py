@@ -74,5 +74,11 @@ def remove_dollar():
     data['High'] = data['High'].str.replace('$', '')
     data['Open'] = data['Open'].str.replace('$', '')
     data['Low'] = data['Low'].str.replace('$', '')
+    #print(data.to_string(index=False))
+    # using dictionary to convert specific columns
+    convert_dict = {'Volume': int,
+                    'High': float,
+                    }
 
-    print(data.to_string(index=False))
+    df = data.astype(convert_dict)
+    print(df.dtypes)

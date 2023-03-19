@@ -69,3 +69,10 @@ def data_duplicated():
 
 
 
+def remove_dollar():
+    data['Close/Last'] = data['Close/Last'].str.replace('$','')
+    data['High'] = data['High'].str.replace('$', '')
+    data['Open'] = data['Open'].str.replace('$', '')
+    data['Low'] = data['Low'].str.replace('$', '')
+
+    print(data.to_string(index=False))

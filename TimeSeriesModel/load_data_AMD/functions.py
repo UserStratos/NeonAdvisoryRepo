@@ -76,9 +76,36 @@ def remove_dollar():
     data['Low'] = data['Low'].str.replace('$', '')
     #print(data.to_string(index=False))
     # using dictionary to convert specific columns
-    convert_dict = {'Volume': int,
+    convert_dict = {'Volume': float,
                     'High': float,
+                    'Low': float,
+                    'Open': float,
+                    'Close/Last': float,
                     }
 
-    df = data.astype(convert_dict)
-    print(df.dtypes)
+    #print(data[['High']].to_string(index=False))
+    #print(data[['Open']].to_string(index=False))
+    #print(data[['Low']].to_string(index=False))
+    #print(data[['Close/Last']].to_string(index=False))
+    #print(data[['Date']].to_string(index=False))
+
+
+# x axis values
+x = data['Low']
+# corresponding y axis values
+
+y = data['High']
+
+# plotting the points
+plt.scatter(x, y)
+
+# naming the x axis
+plt.xlabel('x - axis')
+# naming the y axis
+plt.ylabel('y - axis')
+
+# giving a title to my graph
+plt.title('Scatter plot')
+
+# function to show the plot
+plt.show()

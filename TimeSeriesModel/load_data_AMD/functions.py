@@ -6,9 +6,9 @@ import pandas as pd
 import seaborn as sns
 #plt.style.use('ggplot')
 #pd.set_option('max_columns', 200)
-from TimeSeriesModel.load_data.constants import r
-from TimeSeriesModel.load_data.constants import file_name, data
-#from TimeSeriesModel.load_data.constants import data
+from TimeSeriesModel.load_data_AMD.constants import r
+from TimeSeriesModel.load_data_AMD.constants import file_name, data
+#from TimeSeriesModel.load_data_AMD.constants import data
 #Functions that are going to help calculations
 
 #Function 1: Loading data from csv and plot a graph

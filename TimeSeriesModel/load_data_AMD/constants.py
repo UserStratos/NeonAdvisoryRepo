@@ -8,7 +8,7 @@ import pandas as pd
 r = 500
 
 # Load data from csv file in to a dataframe
-file_name = 'Data.csv'
+file_name = 'AMD.csv'
 
 # Name the dataframe
 data = pd.read_csv(file_name)

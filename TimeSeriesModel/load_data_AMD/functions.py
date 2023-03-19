@@ -9,6 +9,7 @@ import seaborn as sns
 from TimeSeriesModel.load_data_AMD.constants import r
 from TimeSeriesModel.load_data_AMD.constants import file_name, data
 #from TimeSeriesModel.load_data_AMD.constants import data
+
 #Functions that are going to help calculations
 
 #Function 1: Loading data from csv and plot a graph
@@ -38,11 +39,6 @@ def data_columns():
 def data_dtypes():
     print(data.dtypes)
 
-    #year = data['Year'] = data['Release Date'].apply(lambda x: '20'+str(x)[-2:])
-    #month = data['Month'] = data['Release Date'].apply(lambda x: str(x)[-6:-4])
-    #day = data['Day'] = data['Release Date'].apply(lambda x: str(x)[:-7])
-
-    #print(data.columns.tolist())
 
 #Missing values
 def data_missing_values():
@@ -57,7 +53,7 @@ def data_head():
 
 def data_column():
       for x in data:
-          data_head()
+          data.head()
           print('all good')
 
 def data_size():
@@ -73,15 +69,3 @@ def data_duplicated():
 
 
 
-
-#Print graph Streams (Billions) / Year
-
-   #ax = data[['Streams (Billions)', 'Year']].plot(kind='bar', title = 'Streams (Billions)', figsize=(15, 10))
-   #ax.set_xlabel("x-axis")
-   #ax.set_ylabel('y-axis')
-#x = data['Year']
-#y = data['Streams (Billions)']
-
-#plot the graph
-#plt.plot(x, y)
-#plt.show()

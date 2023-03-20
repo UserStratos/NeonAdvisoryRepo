@@ -3,23 +3,18 @@ warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
-#plt.style.use('ggplot')
-#pd.set_option('max_columns', 200)
-from TimeSeriesModel.load_data_AMD.constants import r
+import csv
 from TimeSeriesModel.load_data_AMD.constants import file_name, data
-#from TimeSeriesModel.load_data_AMD.constants import data
+from datetime import datetime
+from TimeSeriesModel.load_data_AMD.constants import file_name
+from datetime import datetime
 
 #Functions that are going to help calculations
-
-#Function 1: Loading data from csv and plot a graph
-
 def opencsv(file_name):
     data = pd.read_csv(file_name)
-    print(data)
-    print("Data loaded successfully")
+    print(data.head())
 
-    #print(data.to_string())
+
 
 def data_info():
     print('Summary of the DataFrame')
@@ -69,43 +64,3 @@ def data_duplicated():
 
 
 
-def remove_dollar():
-    data['Close/Last'] = data['Close/Last'].str.replace('$','')
-    data['High'] = data['High'].str.replace('$', '')
-    data['Open'] = data['Open'].str.replace('$', '')
-    data['Low'] = data['Low'].str.replace('$', '')
-    #print(data.to_string(index=False))
-    # using dictionary to convert specific columns
-    convert_dict = {'Volume': float,
-                    'High': float,
-                    'Low': float,
-                    'Open': float,
-                    'Close/Last': float,
-                    }
-
-    #print(data[['High']].to_string(index=False))
-    #print(data[['Open']].to_string(index=False))
-    #print(data[['Low']].to_string(index=False))
-    #print(data[['Close/Last']].to_string(index=False))
-    #print(data[['Date']].to_string(index=False))
-
-
-# x axis values
-x = data['Low']
-# corresponding y axis values
-
-y = data['High']
-
-# plotting the points
-plt.scatter(x, y)
-
-# naming the x axis
-plt.xlabel('x - axis')
-# naming the y axis
-plt.ylabel('y - axis')
-
-# giving a title to my graph
-plt.title('Scatter plot')
-
-# function to show the plot
-plt.show()

@@ -3,24 +3,20 @@ warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import csv
 from TimeSeriesModel.load_data_AMD.constants import file_name, data
-from TimeSeriesModel.load_data_AMD.constants import file_name
+
 
 #Functions that are going to help calculations
 def opencsv(file_name):
     data = pd.read_csv(file_name)
 
-    #shor_data = data.sort_values(by= "Open", ascending = False)
-    #print(data)
+
 def replace_dollar_sign():
     df = pd.DataFrame(data)
     df['High'] = df['High'].str.replace('$', '')
     df['Low'] = df['Low'].str.replace('$', '')
     df['Open'] = df['Open'].str.replace('$', '')
     df['Close/Last'] = df['Close/Last'].str.replace('$', '')
-
-
 
 def change_data_type():
     df = pd.DataFrame(data)
@@ -34,54 +30,62 @@ def change_data_type():
     print(df)
 
 def sort_data_by_column():
-    shor_data = data.sort_values(by= "Open", ascending = False)
-    print(data)
+    df = pd.DataFrame(data)
+    shor_data = df.sort_values(by= "Open", ascending = False)
+    print(df)
 
 def data_info():
+    df = pd.DataFrame(data)
     print('Summary of the DataFrame')
-    print(data.info())
+    print(df.info())
 
     #print(data.head())
     #print(data.tail())
 def data_shape():
-    print(data.shape)
+    df = pd.DataFrame(data)
+    print(df.shape)
 
 def data_description():
-    print(data.describe())
+    df = pd.DataFrame(data)
+    print(df.describe())
 
 def data_columns():
-    print(data.columns)
+    df = pd.DataFrame(data)
+    print(df.columns)
 
 def data_dtypes():
-    print(data.dtypes)
+    df = pd.DataFrame(data)
+    print(df.dtypes)
 
 
 #Missing values
 def data_missing_values():
-    print(data.isna().sum())
+    df = pd.DataFrame(data)
+    print(df.isna().sum())
 
 #Missing values
 def duplicated_data():
-    print(data.loc[data.duplicated()])
+    df = pd.DataFrame(data)
+    print(df.loc[data.duplicated()])
 
 def data_head():
-    print(data.head())
+    df = pd.DataFrame(data)
+    print(df.head())
 
-def data_column():
-      for x in data:
-          data.head()
-          print('all good')
 
 def data_size():
-    print(data.size)
+    df = pd.DataFrame(data)
+    print(df.size)
 
 def data_empty():
+    df = pd.DataFrame(data)
     print(data_empty)
 
 def data_duplicated():
-    columns = data.head()
+    df = pd.DataFrame(data)
+    columns = df.head()
     for x in columns:
-        print(data.loc[data.duplicated(subset=[x])])
+        print(df.loc[df.duplicated(subset=[x])])
 
 
 

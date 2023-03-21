@@ -7,6 +7,7 @@ import seaborn as sns
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
 
 
+
 #Functions that are going to help calculations
 def opencsv(file_name):
     data = pd.read_csv(file_name)
@@ -36,8 +37,6 @@ def data_info():
     print('Summary of the DataFrame')
     print(df.info())
 
-    #print(data.head())
-    #print(data.tail())
 def data_shape():
     print(df.shape)
 
@@ -111,6 +110,7 @@ def plot_Volume():
     # Plot axes labels and show the plot
     plt.xlabel('Date')
     plt.ylabel('Volume')
+
     plt.show()
 
 def all_graphs_inone_subplots():
@@ -118,16 +118,10 @@ def all_graphs_inone_subplots():
     df.plot(subplots=True, layout=(4, 5))
     plt.tight_layout()
     plt.show()
-
-
-
-
-#def plot_histogramgraph():
-    #df = pd.DataFrame(data)
-    #x = ['Volume']
-    #y = ['Low']
-    #plt.hist([x], color=['g', ], alpha=0.8, bins=50)
-    #plt.show()
+def plot_histogramgraph():
+    x = df['Volume']
+    plt.hist([x], color=['g', ], alpha=0.8, bins=50)
+    plt.show()
 
 
 

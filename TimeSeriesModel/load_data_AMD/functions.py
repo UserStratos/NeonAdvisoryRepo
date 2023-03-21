@@ -88,4 +88,15 @@ def data_duplicated():
         print(df.loc[df.duplicated(subset=[x])])
 
 
+def plot_graph():
+    df = pd.DataFrame(data)
+    x = df['Date']
+    y = df['Open']
 
+    # Plot lists 'x' and 'y'
+    plt.plot(x, y)
+
+    # Plot axes labels and show the plot
+    plt.xlabel('X-axis Label')
+    plt.ylabel('Y-axis Label')
+    plt.show()

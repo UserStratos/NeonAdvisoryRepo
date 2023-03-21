@@ -15,5 +15,6 @@ data = pd.read_csv(file_name)
 # Calculae how many columns are in teh dataFrame
 x = (len(data))
 
-
+#Define teh dataframe
+df = pd.DataFrame(data)
 

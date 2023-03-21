@@ -3,7 +3,8 @@ warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-from TimeSeriesModel.load_data_AMD.constants import file_name, data
+import seaborn as sns
+from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
 
 
 #Functions that are going to help calculations
@@ -12,14 +13,12 @@ def opencsv(file_name):
 
 
 def replace_dollar_sign():
-    df = pd.DataFrame(data)
     df['High'] = df['High'].str.replace('$', '')
     df['Low'] = df['Low'].str.replace('$', '')
     df['Open'] = df['Open'].str.replace('$', '')
     df['Close/Last'] = df['Close/Last'].str.replace('$', '')
 
 def change_data_type():
-    df = pd.DataFrame(data)
     df['Open'] = df["Open"].astype(float)
     df['Volume'] = df["Volume"].astype(float)
     df['High'] = df["High"].astype(float)
@@ -30,73 +29,106 @@ def change_data_type():
     print(df)
 
 def sort_data_by_column():
-    df = pd.DataFrame(data)
     shor_data = df.sort_values(by= "Open", ascending = False)
     print(df)
 
 def data_info():
-    df = pd.DataFrame(data)
     print('Summary of the DataFrame')
     print(df.info())
 
     #print(data.head())
     #print(data.tail())
 def data_shape():
-    df = pd.DataFrame(data)
     print(df.shape)
 
 def data_description():
-    df = pd.DataFrame(data)
     print(df.describe())
 
 def data_columns():
-    df = pd.DataFrame(data)
     print(df.columns)
 
 def data_dtypes():
-    df = pd.DataFrame(data)
     print(df.dtypes)
 
 
 #Missing values
 def data_missing_values():
-    df = pd.DataFrame(data)
     print(df.isna().sum())
 
 #Missing values
 def duplicated_data():
-    df = pd.DataFrame(data)
     print(df.loc[data.duplicated()])
 
 def data_head():
-    df = pd.DataFrame(data)
     print(df.head())
 
 
 def data_size():
-    df = pd.DataFrame(data)
     print(df.size)
 
 def data_empty():
-    df = pd.DataFrame(data)
     print(data_empty)
 
 def data_duplicated():
-    df = pd.DataFrame(data)
     columns = df.head()
     for x in columns:
         print(df.loc[df.duplicated(subset=[x])])
 
 
-def plot_graph():
-    df = pd.DataFrame(data)
+def plot_allgraphs_in_one():
     x = df['Date']
-    y = df['Open']
+    l = df['Close/Last']
+    h = df['High']
+    o = df['Open']
+    v = df['Volume']
+    # Plot with differently-colored markers.
+    plt.plot(df['Date'], l, 'b-', label='Close\Last')
+    plt.plot(df['Date'], h, 'g-', label='High')
+    plt.plot(df['Date'], o, 'g-', label='Open')
+    #plt.plot(df['Date'], v, 'g-', label='Volume')
 
+    # Create legend.
+    plt.legend(loc='upper left')
+    plt.xlabel('Date')
+    plt.ylabel('Prices')
+    plt.show()
+
+def plot_Close_Last():
+    x = df['Date']
+    y = df['Close/Last']
     # Plot lists 'x' and 'y'
     plt.plot(x, y)
-
-    # Plot axes labels and show the plot
-    plt.xlabel('X-axis Label')
-    plt.ylabel('Y-axis Label')
+    #Plot axes labels and show the plot
+    plt.xlabel('Date')
+    plt.ylabel('Close/Last')
     plt.show()
+
+def plot_Volume():
+    x = df['Date']
+    y = df['Volume']
+    # Plot lists 'x' and 'y'
+    plt.plot(x, y)
+    # Plot axes labels and show the plot
+    plt.xlabel('Date')
+    plt.ylabel('Volume')
+    plt.show()
+
+def all_graphs_inone_subplots():
+    df.plot(subplots=True)
+    df.plot(subplots=True, layout=(4, 5))
+    plt.tight_layout()
+    plt.show()
+
+
+
+
+#def plot_histogramgraph():
+    #df = pd.DataFrame(data)
+    #x = ['Volume']
+    #y = ['Low']
+    #plt.hist([x], color=['g', ], alpha=0.8, bins=50)
+    #plt.show()
+
+
+
+

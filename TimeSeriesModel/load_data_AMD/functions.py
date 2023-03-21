@@ -5,16 +5,37 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import csv
 from TimeSeriesModel.load_data_AMD.constants import file_name, data
-from datetime import datetime
 from TimeSeriesModel.load_data_AMD.constants import file_name
-from datetime import datetime
 
 #Functions that are going to help calculations
 def opencsv(file_name):
     data = pd.read_csv(file_name)
-    print(data.head())
+
+    #shor_data = data.sort_values(by= "Open", ascending = False)
+    #print(data)
+def replace_dollar_sign():
+    df = pd.DataFrame(data)
+    df['High'] = df['High'].str.replace('$', '')
+    df['Low'] = df['Low'].str.replace('$', '')
+    df['Open'] = df['Open'].str.replace('$', '')
+    df['Close/Last'] = df['Close/Last'].str.replace('$', '')
 
 
+
+def change_data_type():
+    df = pd.DataFrame(data)
+    df['Open'] = df["Open"].astype(float)
+    df['Volume'] = df["Volume"].astype(float)
+    df['High'] = df["High"].astype(float)
+    df['Low'] = df["Low"].astype(float)
+    df['Close/Last'] = df["Close/Last"].astype(float)
+    df['Date'] = df['Date'].astype('datetime64[ns]')
+
+    print(df)
+
+def sort_data_by_column():
+    shor_data = data.sort_values(by= "Open", ascending = False)
+    print(data)
 
 def data_info():
     print('Summary of the DataFrame')

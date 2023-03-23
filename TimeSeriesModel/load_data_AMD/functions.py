@@ -1,6 +1,7 @@
 import warnings
 warnings.simplefilter("ignore")
 import numpy as np
+import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sn
@@ -212,3 +213,20 @@ def correlation_matrix():
     print(corr_matrix)
     sn.heatmap(corr_matrix, annot=True)
     plt.show()
+
+def OLS():
+
+    # define response variable
+    y = df['Volume']
+
+    # define explanatory variable
+    x = df[['Close/Last']]
+
+    # add constant to predictor variables
+    x = sm.add_constant(x)
+
+    # fit linear regression model
+    model = sm.OLS(y, x).fit()
+
+    # view model summary
+    print(model.summary())

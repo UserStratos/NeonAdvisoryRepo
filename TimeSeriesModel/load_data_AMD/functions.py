@@ -4,9 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import pmdarima
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
-import statsmodels as sm
-import statsmodels.api as sm
+from pmdarima.arima import auto_arima
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
@@ -195,3 +195,20 @@ def Dickey_Fuller():
          "Metric": ["Test Statistics", "p-value", "No. of lags used", "Number of observations used",
                     "critical value (1%)", "critical value (5%)", "critical value (10%)"]})
     print(output_df)
+
+def Autocorrelation():
+    autocorrelation_lag1 = df['Volume'].autocorr(lag=1)
+    print("One Month Lag: ", autocorrelation_lag1)
+
+    autocorrelation_lag3 = df['Volume'].autocorr(lag=3)
+    print("Three Month Lag: ", autocorrelation_lag3)
+
+    autocorrelation_lag6 = df['Volume'].autocorr(lag=6)
+    print("Six Month Lag: ", autocorrelation_lag6)
+
+    autocorrelation_lag9 = df['Volume'].autocorr(lag=9)
+    print("Nine Month Lag: ", autocorrelation_lag9)
+
+def correlation_matrix():
+    corr_matrix = df.corr()
+    print(corr_matrix)

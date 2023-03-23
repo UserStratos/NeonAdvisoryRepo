@@ -145,20 +145,23 @@ def plot_multi_graphs():
     figure, axis = plt.subplots(2, 2)
 
     # For Close\Last price
-    axis[0, 0].plot(k, x)
-    axis[0, 0].set_title("Close\Last Graph")
+    axis[0, 0].plot(k, x, color='r')
+    axis[0, 0].set_title("Close\Last Graph", color='r')
+
 
     # For Volume
-    axis[0, 1].plot(k, y)
-    axis[0, 1].set_title("Volume Graph")
+    axis[0, 1].plot(k, y, color='c')
+    axis[0, 1].set_title("Volume Graph", color='c')
+
 
     # For Open price
-    axis[1, 0].plot(k, z)
-    axis[1, 0].set_title("Open price Graph")
+    axis[1, 0].plot(k, z, color='y')
+    axis[1, 0].set_title("Open price Graph", color='y')
 
     # For Low price
-    axis[1, 1].plot(k, d)
-    axis[1, 1].set_title("Low price Graph")
+    axis[1, 1].plot(k, d, color='b')
+    axis[1, 1].set_title("Low price Graph", color='b')
 
+    plt.tight_layout()
     # Combine all the operations and display
     plt.show()

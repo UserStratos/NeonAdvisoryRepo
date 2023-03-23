@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
+from sklearn.metrics import r2_score, median_absolute_error, mean_absolute_error
+from sklearn.metrics import median_absolute_error, mean_squared_error, mean_squared_log_error
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 
 
@@ -164,4 +167,22 @@ def plot_multi_graphs():
 
     plt.tight_layout()
     # Combine all the operations and display
+    plt.show()
+def ACF_PACF():
+    variable = df['Volume']
+    # acf = acf(data, nlags=40)
+    # pacf = pacf(data,nlags=40,method='ols')
+
+    # plt.stem(acf)
+    fig, ax = plt.subplots(1, 2, figsize=(15, 5))
+    plot_acf(variable, lags=40, title="ACF on levels", ax=ax[0])
+    # plt.show()
+    plot_pacf(variable, lags=40, title="PACF on levels", ax=ax[1])
+    plt.show()
+
+    first_difference = variable.diff(periods=1).values[1:]
+    fig, ax = plt.subplots(1, 2, figsize=(15, 5))
+    plot_acf(first_difference, lags=40, title="ACF on the first differences", ax=ax[0])
+    # plt.show()
+    plot_pacf(first_difference, lags=40, title="PACF on the first differences", ax=ax[1])
     plt.show()

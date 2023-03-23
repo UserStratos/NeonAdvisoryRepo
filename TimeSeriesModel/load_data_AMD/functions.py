@@ -113,16 +113,52 @@ def plot_Volume():
 
     plt.show()
 
-def all_graphs_inone_subplots():
-    df.plot(subplots=True)
-    df.plot(subplots=True, layout=(4, 5))
-    plt.tight_layout()
-    plt.show()
+
 def plot_histogramgraph():
     x = df['Volume']
+    plt.xlabel('Smarts')
+    plt.ylabel('Probability')
+    plt.title('Histogram Volume')
     plt.hist([x], color=['g', ], alpha=0.8, bins=50)
+    plt.grid(True)
     plt.show()
 
 
+def plot_scatter_plot():
+    plt.scatter(df['Volume'], df['Close/Last'])
+    plt.xlabel('Volume')
+    plt.ylabel('Close/Last')
+    plt.title('Scatter plot Volume, Last\Close price')
+    plt.grid(True)
+    plt.show()
 
+def plot_multi_graphs():
 
+    # Get the angles from 0 to 2 pie (360 degree) in narray object
+    x = df['Close/Last']
+    y = df["Volume"]
+    z = df["Open"]
+    d = df['Low']
+    k = df["Date"]
+
+    # Initialise the subplot function using number of rows and columns
+    figure, axis = plt.subplots(2, 2)
+
+    # For Close\Last price
+    axis[0, 0].plot(k, x)
+    axis[0, 0].set_title("Close\Last Graph")
+
+    # For Volume
+    axis[0, 1].plot(k, y)
+    axis[0, 1].set_title("Volume Graph")
+
+    # For Open price
+    axis[1, 0].plot(k, z)
+    axis[1, 0].set_title("Open price Graph")
+
+    # For Low price
+    axis[1, 1].plot(k, d)
+    axis[1, 1].set_title("Low price Graph")
+
+    # Combine all the operations and display
+    plt.show()

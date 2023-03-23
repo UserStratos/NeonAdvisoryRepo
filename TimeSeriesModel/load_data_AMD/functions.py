@@ -3,7 +3,7 @@ warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
+import seaborn as sn
 import pmdarima
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
 from pmdarima.arima import auto_arima
@@ -212,3 +212,5 @@ def Autocorrelation():
 def correlation_matrix():
     corr_matrix = df.corr()
     print(corr_matrix)
+    sn.heatmap(corr_matrix, annot=True)
+    plt.show()

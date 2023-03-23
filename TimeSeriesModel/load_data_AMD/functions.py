@@ -1,4 +1,4 @@
-import warnings;
+import warnings
 warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt

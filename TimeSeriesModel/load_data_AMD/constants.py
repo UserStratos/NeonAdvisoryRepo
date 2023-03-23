@@ -3,6 +3,7 @@ warnings.simplefilter("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import QuantLib as ql
 
 
 
@@ -17,4 +18,3 @@ x = (len(data))
 
 #Define teh dataframe
 df = pd.DataFrame(data)
-

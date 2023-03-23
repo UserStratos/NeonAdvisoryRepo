@@ -5,8 +5,10 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sn
+import statistics
+import QuantLib as ql
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
-from statsmodels.tsa.stattools import adfuller, kpss
+from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 
@@ -231,3 +233,4 @@ def OLS():
 
     # view model summary
     print(model.summary())
+

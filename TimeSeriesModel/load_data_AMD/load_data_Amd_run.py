@@ -28,10 +28,11 @@ change_data_type()
 #plot_scatter_plot()
 #plot_multi_graphs()
 #ACF_PACF()
-Dickey_Fuller()
+#Dickey_Fuller()
 #Autocorrelation()
 #correlation_matrix()
 OLS()
+
 
 
 

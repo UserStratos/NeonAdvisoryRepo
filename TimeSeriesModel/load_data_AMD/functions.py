@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sn
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
-from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.stattools import adfuller, kpss
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 
@@ -194,6 +194,7 @@ def Dickey_Fuller():
          "Metric": ["Test Statistics", "p-value", "No. of lags used", "Number of observations used",
                     "critical value (1%)", "critical value (5%)", "critical value (10%)"]})
     print(output_df)
+
 
 def Autocorrelation():
     autocorrelation_lag1 = df['Volume'].autocorr(lag=1)

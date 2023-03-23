@@ -29,9 +29,10 @@ change_data_type()
 #plot_multi_graphs()
 #ACF_PACF()
 Dickey_Fuller()
-Autocorrelation()
-correlation_matrix()
+#Autocorrelation()
+#correlation_matrix()
 OLS()
+
 
 
 

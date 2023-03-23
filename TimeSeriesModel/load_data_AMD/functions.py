@@ -4,9 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sn
-import pmdarima
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
-from pmdarima.arima import auto_arima
 from statsmodels.tsa.stattools import adfuller
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 

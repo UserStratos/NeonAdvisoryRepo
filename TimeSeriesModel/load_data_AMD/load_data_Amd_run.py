@@ -5,7 +5,7 @@ from TimeSeriesModel.load_data_AMD.functions import opencsv, data_info, data_sha
     data_missing_values, duplicated_data, data_head, data_size, data_empty, data_duplicated, sort_data_by_column,\
     replace_dollar_sign, change_data_type, plot_allgraphs_in_one, plot_Close_Last, plot_Volume,\
     plot_histogramgraph, plot_scatter_plot, plot_multi_graphs, ACF_PACF, Dickey_Fuller, Autocorrelation, correlation_matrix,\
-    OLS
+    OLS, monthly_revenue
 
 opencsv(file_name)
 replace_dollar_sign()
@@ -31,7 +31,11 @@ change_data_type()
 #Dickey_Fuller()
 #Autocorrelation()
 #correlation_matrix()
-OLS()
+#OLS()
+monthly_revenue(rate = float(input("Please indicate the hourly rate: ")), \
+                hours = float(input ("Please indicate the weekly hours: ")), \
+                duration=float(input("Please indicate the duration in # of months: ")))
+
 
 
 

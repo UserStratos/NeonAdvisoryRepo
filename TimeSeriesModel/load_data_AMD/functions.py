@@ -5,6 +5,8 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sn
+import colorama
+from colorama import Fore
 import statistics
 import QuantLib as ql
 from TimeSeriesModel.load_data_AMD.constants import file_name, data, df
@@ -233,4 +235,18 @@ def OLS():
 
     # view model summary
     print(model.summary())
+
+def monthly_revenue(rate, hours, duration):
+    monthly_revenue = rate * hours * (4) * duration
+    expenses = duration * 5000
+    ska = 12000
+    skb = 14000
+    print(Fore.CYAN + "The monthly revenue for " + str(hours) + " hours per week and hourly rate " + str(rate) + " is " + str(monthly_revenue))
+    print(Fore.BLUE + "The Net income is " + str(monthly_revenue - expenses) + " for " + str(duration) + " months")
+    print(Fore.BLUE + "Compare to ska this is " + str(monthly_revenue - (ska * duration)) + " for " + str(duration) + " months")
+    print(Fore.BLUE + "Compare to skb this is " + str(monthly_revenue - (skb * duration)) + " for " + str(
+        duration) + " months")
+
+
+
 
